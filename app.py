@@ -1,5 +1,11 @@
+# IMPORTS SECTION
+# - Streamlit
 import streamlit as st
-from utils.excel_utils import read_excel_data
+# - Others libraries
+import json
+# - Own Components
+# from utils.excel_utils import read_excel_data [Not currentyl needed]
+from utils.form_utils import render_dynamic_form 
 from utils.word_utils import process_word_template
 from utils.ui_components import (
     excel_upload_section,
@@ -7,8 +13,14 @@ from utils.ui_components import (
     preview_dataframe
 )
 
-st.set_page_config(page_title="Excel → Word Processor", layout="centered")
-st.title("📄 MS Excel → Word Replacer")
+# 0. Initial load of json with inputs data
+with open("data/tags.json", "r") as f:
+    fields = json.load(f)
+
+
+# CONTEXT CREATION
+st.set_page_config(page_title="LOI Automator", layout="centered")
+st.title("LOI Automator")
 
 # Initialize session state
 if "context" not in st.session_state:
@@ -18,30 +30,32 @@ if "preview" not in st.session_state:
 if "output" not in st.session_state:
     st.session_state["output"] = None
 
-# --- Step 1: Upload Excel ---
-st.header("1. Upload Excel File")
-excel_file, first_row, tag_col, user_input_col = excel_upload_section()
-
-if excel_file and st.button("Read Input Data"):
-    context, preview = read_excel_data(excel_file, first_row, tag_col, user_input_col)
-    st.session_state["context"] = context
-    st.session_state["preview"] = preview
-
-# Show preview if available
-if st.session_state["preview"] is not None:
-    st.success("✅ Data processed successfully!")
-    preview_dataframe(st.session_state["preview"])
-
-# --- Step 2: Upload Word ---
-st.header("2. Upload Word Template")
+# 1. Manage .word file upload
+st.header("1. Upload Word Template")
 word_file = word_upload_section()
+
+# 2. Render and logic for Fill out form
+st.header("2. Fill Out Tags Form")
+context = render_dynamic_form(fields)
+if context is not None:
+    st.session_state["context"] = context
+# st.session_state["context"] = context
+
 
 # Debug
 # st.write("Context preview:", st.session_state["context"])
-
 if word_file and st.session_state["context"]:
     if st.button("Process File"):
-        output = process_word_template(word_file, st.session_state["context"])
+        # --- Fix empty tags ---
+        context_fixed = {}
+        for key, value in st.session_state["context"].items():
+            if value == "" or value is None:
+                context_fixed[key] = f"{{{{{key}}}}}"  # keep the tag in Word
+            else:
+                context_fixed[key] = value
+
+        # --- Process Word template ---
+        output = process_word_template(word_file, context_fixed)
         st.session_state["output"] = output
 
 # --- Step 3: Download ---
