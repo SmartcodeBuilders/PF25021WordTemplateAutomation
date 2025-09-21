@@ -5,7 +5,7 @@ def render_dynamic_form(fields):
     """Render a form dynamically from a list of field configs (JSON)."""
     context = {}
 
-    with st.form("input_form"):
+    with st.form("input_form_2"):
         for field in fields:
             field_name = field["name"]
             field_label = field.get("label", field_name)
