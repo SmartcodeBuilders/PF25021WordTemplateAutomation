@@ -43,6 +43,6 @@ def render_dynamic_form(fields):
                     key=field_name
                 )
 
-        submitted = st.form_submit_button("Save Data & Continue")
+        submitted = st.form_submit_button("Save data and continue")
 
     return context if submitted else None
