@@ -24,7 +24,7 @@ def render_dynamic_form(fields):
                 #     key=field_name
                 # )
                 value = st.number_input(
-                    f"{field_label} ($)",
+                    f"{field_label}",
                     value=field.get("default", 0),
                     key=field_name
                 )
