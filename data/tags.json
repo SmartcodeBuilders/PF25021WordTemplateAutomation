@@ -1,7 +1,7 @@
 [
   { "name": "PROJECT_NAME", "label": "Project Name", "type": "text" },
   { "name": "DATE_TODAY", "label": "LOI Date", "type": "date" },
-  { "name": "LANDOWNER_NAME", "label": "Landowner Legal Entity Name", "type": "text" },
-  { "name": "LANDOWNER_ADDRESS", "label": "Parcel Address", "type": "text" },
-  { "name": "LEASERENTAMOUNT", "label": "Lease Payment Amount ", "type": "number" }
+  { "name": "LANDOWNER_NAME", "label": "Landowner Legal Entity Name (e.g., 'ACME, LLC')", "type": "text" },
+  { "name": "LANDOWNER_ADDRESS", "label": "Parcel Address (format: '123 Broadway, New York, NY 10014')", "type": "text" },
+  { "name": "LEASERENTAMOUNT", "label": "Lease Payment Amount (e.g., '$100,000.00')", "type": "number" }
 ]
