@@ -8,7 +8,7 @@ def excel_upload_section():
     return excel_file, first_row, tag_col, user_input_col
 
 def word_upload_section():
-    return st.file_uploader("Upload your Word template (.docx) ⬆️", type=["docx"])
+    return st.file_uploader("Select Template to Update (.docx) ⬆️", type=["docx"])
 
 def preview_dataframe(df):
     if df is not None:
