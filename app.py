@@ -18,18 +18,18 @@ for key in ["context", "output"]:
         st.session_state[key] = {}
 
 # 3. Upload Word template
-st.header("1. Upload Word Template")
+st.header("1. Upload Template Document")
 word_file = word_upload_section()
 
 # 4. Fill out dynamic form
-st.header("2. Fill Out Tags Form")
+st.header("2. General Project Info")
 context = render_dynamic_form(fields)
 if context is not None:
     st.session_state["context"] = context
 
 
 # 5. Filename input
-st.header("3. File Name and Processing")
+st.header("3. LOI File Name")
 filename = st.text_input(
     "Enter file name for download:", value="processed.docx", key="download_filename"
 )
