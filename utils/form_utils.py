@@ -4,18 +4,25 @@ from datetime import date
 def currency_input(label, key, default=0.0):
     """
     Currency input that allows typing, displays $, and formats value when user finishes typing.
+    Displays integers without decimals when possible.
     Returns numeric float.
     """
     def format_currency():
         try:
             val = float(st.session_state[key].replace("$", "").replace(",", ""))
-            st.session_state[key] = f"${val:,.2f}"
+            if val.is_integer():
+                st.session_state[key] = f"${int(val):,}"
+            else:
+                st.session_state[key] = f"${val:,.2f}"
         except ValueError:
             pass
 
     # Initialize default display if first run
     if key not in st.session_state:
-        st.session_state[key] = f"${default:,.2f}"
+        if float(default).is_integer():
+            st.session_state[key] = f"${int(default):,}"
+        else:
+            st.session_state[key] = f"${default:,.2f}"
 
     # Input field with on_change callback
     user_input = st.text_input(label, key=key, on_change=format_currency)
@@ -23,9 +30,8 @@ def currency_input(label, key, default=0.0):
     # Always return numeric version
     try:
         num_value = float(user_input.replace("$", "").replace(",", ""))
-        num_value = f"${num_value:,.2f}"
     except ValueError:
-        num_value = user_input 
+        num_value = 0.0
 
     return num_value
 
