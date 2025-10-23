@@ -9,7 +9,6 @@
   { "name": "LEASE_RENT", "label": "Lease Payment Amount (e.g., '$100,000.00')", "type": "number" },
   { "name": "OPTION_PAYMENT", "label": "Option Payment", "type": "number" },
   
-  { "name": "SITE1_COORDINATES", "label": "Geocoordinates", "type": "text" },
-  { "name": "SITE1_UTILITY", "label": "Electric Utility Name", "type": "text" },
-  { "name": "SITE1_ADDRESS", "label": "Parcel Address", "type": "text" }
+  { "name": "SITE1_COORDINATES", "label": "Geocoordinates (copy and paste from Google Earth)", "type": "text" },
+  { "name": "SITE1_UTILITY", "label": "Electric Utility Name", "type": "text" }
 ]
