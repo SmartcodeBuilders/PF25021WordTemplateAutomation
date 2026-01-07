@@ -1,14 +1,349 @@
 [
-  { "name": "PROJECT_NAME", "label": "Project Name", "type": "text" },
-
-  { "name": "DATE_TODAY", "label": "LOI Date", "type": "date" },
-  { "name": "LANDOWNER_NAME", "label": "Landowner Legal Entity Name (e.g., 'ACME, LLC')", "type": "text" },
-  { "name": "LANDOWNER_ADDRESS", "label": "Parcel Address (format: '123 Broadway, New York, NY 10014')", "type": "text" },
-
-  { "name": "FULLCONTRACTVALUE", "label": "Full Contract Value", "type": "number" },
-  { "name": "LEASE_RENT", "label": "Lease Payment Amount (e.g., '$100,000.00')", "type": "number" },
-  { "name": "OPTION_PAYMENT", "label": "Option Payment", "type": "number" },
-  
-  { "name": "SITE1_COORDINATES", "label": "Geocoordinates (copy and paste from Google Earth)", "type": "text" },
-  { "name": "SITE1_UTILITY", "label": "Electric Utility Name", "type": "text" }
+  {
+    "name": "PROJECT_NAME",
+    "label": "Project Name",
+    "type": "text"
+  },
+  {
+    "name": "DATE_TODAY",
+    "label": "LOI Date",
+    "type": "date"
+  },
+  {
+    "name": "LANDLORD_NAME",
+    "label": "Landlord Legal Entity Name (e.g., 'ACME, LLC')",
+    "type": "text"
+  },
+  {
+    "name": "LANDOWNER_NAME",
+    "label": "Landowner Legal Entity Name (e.g., 'ACME, LLC')",
+    "type": "text"
+  },
+  {
+    "name": "LANDOWNER_ADDRESS",
+    "label": "Parcel Address (format: '123 Broadway, New York, NY 10014')",
+    "type": "text"
+  },
+  {
+    "name": "FULLCONTRACTVALUE",
+    "label": "Full Contract Value",
+    "type": "number",
+    "currency": true
+  },
+  {
+    "name": "LEASE_RENT",
+    "label": "Lease Payment Amount (e.g., '$100,000.00')",
+    "type": "number",
+    "currency": true
+  },
+  {
+    "name": "OPTION_PAYMENT",
+    "label": "Option Payment",
+    "type": "number",
+    "currency": true
+  },
+  {
+    "name": "SITE1_ADDRESS",
+    "label": "Site Address",
+    "type": "text"
+  },
+  {
+    "name": "SITE1_COORDINATES",
+    "label": "Geocoordinates (copy and paste from Google Earth)",
+    "type": "text"
+  },
+  {
+    "name": "SITE1_UTILITY",
+    "label": "Electric Utility Name",
+    "type": "text"
+  },
+  {
+    "name": "NAMEPLATE_CAPACITY_KW",
+    "label": "Nameplate Capacity (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "ENERGY_CAPACITY_KWH",
+    "label": "Energy Capacity (MWh)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "NETWORK_TYPE",
+    "label": "Network Type",
+    "type": "text"
+  },
+  {
+    "name": "DURATION_HOURS",
+    "label": "Duration (hours)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "SITE_CITY",
+    "label": "Site City",
+    "type": "text"
+  },
+  {
+    "name": "SITE_STATE",
+    "label": "Site State",
+    "type": "text"
+  },
+  {
+    "name": "CLIENT_NAME",
+    "label": "Client Name",
+    "type": "text"
+  },
+  {
+    "name": "CLIENT_EMAIL",
+    "label": "Client Email",
+    "type": "text"
+  },
+  {
+    "name": "PROPERTY_ZONE",
+    "label": "Zoning Classification",
+    "type": "text"
+  },
+  {
+    "name": "FEEDER_NAME",
+    "label": "Feeder Name",
+    "type": "text"
+  },
+  {
+    "name": "FEEDER_VOLTAGE",
+    "label": "Feeder Voltage (kV)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "FEEDER_TYPE",
+    "label": "Feeder Type",
+    "type": "text"
+  },
+  {
+    "name": "HOSTING_CAPACITY",
+    "label": "Hosting Capacity (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "MAX_CHARGE_CAPACITY",
+    "label": "Max Charge Capacity (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "MAX_DISCHARGE_CAPACITY",
+    "label": "Max Discharge Capacity (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "QUEUED_DG",
+    "label": "Queued DG (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "SUBSTATION_NAME",
+    "label": "Substation Name",
+    "type": "text"
+  },
+  {
+    "name": "SUBSTATION_HEADROOM",
+    "label": "Substation Headroom (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "QUEUED_CAPACITY",
+    "label": "Queued Reource Capacity (GW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "ENV_RISK_LEVEL",
+    "label": "Environmental Risk Level",
+    "type": "text"
+  },
+  {
+    "name": "TENANT_NAME",
+    "label": "Tenant Name",
+    "type": "text"
+  },
+  {
+    "name": "OPTION_PAYMENT_AMOUNT",
+    "label": "Option Payment Amount",
+    "type": "number",
+    "currency": true
+  },
+  {
+    "name": "OPTION_PAYMENT_WORDS",
+    "label": "Option Payment Words",
+    "type": "text"
+  },
+  {
+    "name": "OPTION_PAYMENT_DATE",
+    "label": "Option Payment Date",
+    "type": "date"
+  },
+  {
+    "name": "LEASE_RENT_AMOUNT",
+    "label": "Lease Rent",
+    "type": "number",
+    "currency": true
+  },
+  {
+    "name": "LEASE_RATE",
+    "label": "Lease Rate ($/MW-month)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "LEASE_RENT_WORDS",
+    "label": "Lease Rent Words",
+    "type": "text"
+  },
+  {
+    "name": "MARKET_PROGRAM_NAME",
+    "label": "Market Program",
+    "type": "text"
+  },
+  {
+    "name": "MARKET_PROGRAM_ACRONYM",
+    "label": "Market Program Name Short",
+    "type": "text"
+  },
+  {
+    "name": "ISO_NAME",
+    "label": "ISO Name",
+    "type": "text"
+  },
+  {
+    "name": "ISO_ZONE",
+    "label": "ISO Zone",
+    "type": "text"
+  },
+  {
+    "name": "CHARGE_PERIOD",
+    "label": "Charge Period",
+    "type": "period",
+    "start_default": "DATE_TODAY",
+    "end_offset_days": 17
+  },
+  {
+    "name": "DISCHARGE_PERIOD",
+    "label": "Discharge Period",
+    "type": "period",
+    "start_default": "DATE_TODAY",
+    "end_offset_days": 17
+  },
+  {
+    "name": "UTILITY_NAME_LONG",
+    "label": "Utility Name Long",
+    "type": "text"
+  },
+  {
+    "name": "UTILITY_NAME_SHORT",
+    "label": "Utility Name Short",
+    "type": "text"
+  },
+  {
+    "name": "SUBSTATION_INSTALLED_DG",
+    "label": "Substation Installed DG (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "EXCLUSIVITY_DATE",
+    "label": "Exclusivity Expiration Date",
+    "type": "date"
+  },
+  {
+    "name": "INSTALLATION_RISK_DESCRIP",
+    "label": "Installation Risk Description",
+    "type": "text"
+  },
+  {
+    "name": "FLOOD_RISK_DESCRIP",
+    "label": "Flood Risk Description",
+    "type": "text"
+  },
+  {
+    "name": "WETLANDS_RISK_DESCRIP",
+    "label": "Wetlands Risk Description",
+    "type": "text"
+  },
+  {
+    "name": "MORATORIA_RISK_DESCRIP",
+    "label": "Moratoria Risk Description",
+    "type": "text"
+  },
+  {
+    "name": "FIRE_RISK_DESCRIP",
+    "label": "Fire Risk Description",
+    "type": "text"
+  },
+  {
+    "name": "NEIGHBORHOOD_ZONES",
+    "label": "Neighborhood Zones",
+    "type": "text"
+  },
+  {
+    "name": "CHARGING_PERIOD",
+    "label": "System Charging Period",
+    "type": "period",
+    "start_default": "DATE_TODAY",
+    "end_offset_days": 17
+  },
+  {
+    "name": "CHARGING_HOURS",
+    "label": "System Charging Hours",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "CHARGING_RATE",
+    "label": "Hourly Charging Rate",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "PEAK_PERIOD",
+    "label": "Discharge Peak Period",
+    "type": "period",
+    "start_default": "DATE_TODAY",
+    "end_offset_days": 17
+  },
+  {
+    "name": "SUBSTATION_CAPACITY",
+    "label": "Substation Capacity (MW)",
+    "type": "number"
+  },
+  {
+    "name": "SUBSTATION_INSTALLED_CAPACITY",
+    "label": "Substation Installed Capacity (MW)",
+    "type": "number"
+  },
+  {
+    "name": "SUBSTATION_IMPACT",
+    "label": "Substation Impact Conclusion",
+    "type": "text"
+  },
+  {
+    "name": "STATE_ENV_NAME",
+    "label": "State Environmental Agency Name",
+    "type": "text"
+  },
+  {
+    "name": "STATE_PROTECTED_LAND_REF",
+    "label": "State Protected Lands Reference",
+    "type": "text"
+  },
+  {
+    "name": "STATE_SPECIES_NAME",
+    "label": "State Protected Migratory Species Entity Name",
+    "type": "text"
+  }
 ]
