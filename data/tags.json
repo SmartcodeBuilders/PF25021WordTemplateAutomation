@@ -195,6 +195,12 @@
     "currency": true
   },
   {
+    "name": "LEASE_OPTION_AMOUNT",
+    "label": "Lease Option Amount",
+    "type": "number",
+    "currency": true
+  },
+  {
     "name": "LEASE_RATE",
     "label": "Lease Rate ($/MW-month)",
     "type": "number",
