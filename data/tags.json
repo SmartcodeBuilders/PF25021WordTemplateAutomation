@@ -351,5 +351,123 @@
     "name": "STATE_SPECIES_NAME",
     "label": "State Protected Migratory Species Entity Name",
     "type": "text"
+  },
+  {
+    "name": "TOPO_CONCLUSION",
+    "label": "Topography Conclusion",
+    "type": "text"
+  },
+  {
+    "name": "TOPO_DESCRIPTION",
+    "label": "Topography Description",
+    "type": "text"
+  },
+  {
+    "name": "URBAN_RURAL",
+    "label": "Urban/Rural Classification",
+    "type": "text"
+  },
+  {
+    "name": "TOPO_NEXT_STEPS",
+    "label": "Topography Next Steps",
+    "type": "text"
+  },
+  {
+    "name": "ZONE_DESCRIPTION",
+    "label": "Zone Description",
+    "type": "text"
+  },
+  {
+    "name": "NEIGHBORHOOD_RISK_CONCLUSION",
+    "label": "Neighborhood Risk Conclusion",
+    "type": "text"
+  },
+  {
+    "name": "NEIGHBORHOOD_RISK_DESCRIPTION",
+    "label": "Neighborhood Risk Description",
+    "type": "text"
+  },
+  {
+    "name": "FEEDER_INSTALLED_DG",
+    "label": "Feeder Installed DG (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "SUBSTATION_HOSTING_CAPACITY",
+    "label": "Substation Hosting Capacity (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "SUBSTATION_DEAD_DG",
+    "label": "Substation Dead DG (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "SUBSTATION_NET_QUEUED_DG",
+    "label": "Substation Net Queued DG (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "TRANSMISSION_VOLTAGE",
+    "label": "Transmission Voltage (kV)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "SUBSTATION_DISCHARGE_SUMMARY",
+    "label": "Substation Discharge Summary",
+    "type": "text"
+  },
+  {
+    "name": "SITE_COUNTY",
+    "label": "Site County",
+    "type": "text"
+  },
+  {
+    "name": "ISO_QUEUED_DG",
+    "label": "ISO Queued DG (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "ISO_QUEUED_PV",
+    "label": "ISO Queued PV (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "ISO_QUEUED_ESS",
+    "label": "ISO Queued ESS (MW)",
+    "type": "number",
+    "currency": false
+  },
+  {
+    "name": "WETLANDS_DESCRIPTION",
+    "label": "Wetlands Description",
+    "type": "text"
+  },
+  {
+    "name": "PROTECTED_LANDS_DESCRIPTION",
+    "label": "Protected Lands Description",
+    "type": "text"
+  },
+  {
+    "name": "PROTECTED_SPECIES_DESCRIPTION",
+    "label": "Protected Species Description",
+    "type": "text"
+  },
+  {
+    "name": "HISTORIC_PRESERVATION_DESCRIPTION",
+    "label": "Historic Preservation Description",
+    "type": "text"
+  },
+  {
+    "name": "UST_DESCRIPTION",
+    "label": "Underground Storage Tank (UST) Description",
+    "type": "text"
   }
 ]
