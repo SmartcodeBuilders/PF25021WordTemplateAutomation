@@ -22,34 +22,29 @@ def format_for_document(value, currency=False):
 def formatted_number_input(
     label: str,
     key: str,
-    default: float = 0.0,
+    default="",
     currency: bool = False
 ):
-    """
-    Unified numeric input component.
-
-    Features:
-    - Currency formatting if currency=True
-    - Thousand separators for non-currency numbers
-    - Numeric-only validation
-    - Returns float value
-    """
-    default = float(default or 0)
+    error_key = f"{key}_error"
 
     def format_value():
         try:
             raw = st.session_state[key]
-            raw = raw.replace("$", "").replace(",", "")
 
-            # Allow only digits and a single decimal point
-            if not re.fullmatch(r"\d*\.?\d*", raw):
-                st.session_state[key] = ""
+            # Strip symbols
+            raw_clean = raw.replace("$", "").replace(",", "")
+
+            # Validate numeric pattern
+            if not re.fullmatch(r"\d*\.?\d*", raw_clean):
+                st.session_state[error_key] = True
                 return
+            else:
+                st.session_state[error_key] = False
 
-            if raw == "":
-                return
+            if raw_clean == "":
+                return  # keep blank
 
-            val = float(raw)
+            val = float(raw_clean)
 
             if currency:
                 st.session_state[key] = (
@@ -61,21 +56,16 @@ def formatted_number_input(
                     f"{int(val):,}" if val.is_integer()
                     else f"{val:,.2f}"
                 )
-        except Exception:
-            pass
 
-    # Initialize display value
+        except Exception:
+            st.session_state[error_key] = True
+
+    # Initialize value
     if key not in st.session_state:
-        if currency:
-            st.session_state[key] = (
-                f"${int(default):,}" if default.is_integer()
-                else f"${default:,.2f}"
-            )
-        else:
-            st.session_state[key] = (
-                f"{int(default):,}" if default.is_integer()
-                else f"{default:,.2f}"
-            )
+        st.session_state[key] = "" if default in ("", None) else (
+            f"${float(default):,.2f}" if currency else f"{float(default):,.2f}"
+        )
+        st.session_state[error_key] = False
 
     user_input = st.text_input(
         label=label,
@@ -83,11 +73,16 @@ def formatted_number_input(
         on_change=format_value
     )
 
-    # Return numeric value
-    try:
-        return float(user_input.replace("$", "").replace(",", ""))
-    except ValueError:
-        return 0.0
+    # Show visual error feedback
+    if st.session_state.get(error_key):
+        st.markdown("<span style='color:red;'>Please enter a valid number.</span>", unsafe_allow_html=True)
+
+    # Return parsed value or empty
+    cleaned = user_input.replace("$", "").replace(",", "")
+    if cleaned == "" or st.session_state.get(error_key):
+        return ""
+    return float(cleaned)
+
 
 
 def render_dynamic_form(fields: list) -> dict:
@@ -122,7 +117,8 @@ def render_dynamic_form(fields: list) -> dict:
             context[field_name] = formatted_number_input(
                 label=field_label,
                 key=field_name,
-                default=default or 0,
+                # default=default or 0,
+                default=default,
                 currency=is_currency
             )
 
