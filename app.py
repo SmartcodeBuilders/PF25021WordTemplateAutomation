@@ -84,7 +84,7 @@ filename = st.text_input(
 # 6. Process Word button
 # -------------------------------
 if word_file and st.session_state.get("context"):
-    if st.button("Generate LOI"):
+    if st.button("Generate PDP"):
         # Preserve empty tags in Word template
         context_fixed = {
             key: (f"{{{{{key}}}}}" if value in ["", None] else formatted_doc.get(key, value))
