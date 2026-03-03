@@ -1,6 +1,6 @@
 import streamlit as st
 import re
-from datetime import date, timedelta
+from datetime import date, timedelta, time
 
 def format_for_document(value, currency=False):
     """
@@ -129,7 +129,9 @@ def render_dynamic_form(fields: list) -> dict:
                 key=field_name
             )
             context[field_name] = d.strftime("%B %d, %Y")
-
+        elif field_type == "label_only":
+            st.markdown(f"### {field_label}")
+            context[field_name] = None
         elif field_type == "period":
             start_default = field.get("start_default")
             end_offset = field.get("end_offset_days", 0)
@@ -156,7 +158,16 @@ def render_dynamic_form(fields: list) -> dict:
             else:
                 # Placeholder text (or you can use "")
                 context[field_name] = "Select both start and end dates"
+        elif field_type == "hourly_period":
+            cols = st.columns(2)
 
+            with cols[0]:
+                start = st.time_input(f"{field_label} Start", key=f"{field_name}_start")
+
+            with cols[1]:
+                end = st.time_input(f"{field_label} End", key=f"{field_name}_end")
+
+            context[field_name] = f"{start.strftime('%H:%M')} - {end.strftime('%H:%M')}"
 
         else:
             context[field_name] = st.text_input(
